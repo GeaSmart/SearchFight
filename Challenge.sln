@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Challenge", "Challenge\Challenge.csproj", "{6BF1E0B5-F91C-473F-B114-0CB19939C350}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeUI", "Challenge\ChallengeUI.csproj", "{6BF1E0B5-F91C-473F-B114-0CB19939C350}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{FAAFBE42-D9AB-42D8-954F-C204B5F8B12D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{12E4C392-207F-45D2-85C1-1ADA0297C755}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{6BF1E0B5-F91C-473F-B114-0CB19939C350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BF1E0B5-F91C-473F-B114-0CB19939C350}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BF1E0B5-F91C-473F-B114-0CB19939C350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAAFBE42-D9AB-42D8-954F-C204B5F8B12D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAAFBE42-D9AB-42D8-954F-C204B5F8B12D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAAFBE42-D9AB-42D8-954F-C204B5F8B12D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAAFBE42-D9AB-42D8-954F-C204B5F8B12D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E4C392-207F-45D2-85C1-1ADA0297C755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E4C392-207F-45D2-85C1-1ADA0297C755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E4C392-207F-45D2-85C1-1ADA0297C755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E4C392-207F-45D2-85C1-1ADA0297C755}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

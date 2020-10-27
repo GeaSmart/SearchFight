@@ -1,0 +1,13 @@
+C:\Users\Gazabache\Desktop\Challenge\Challenge\obj\Debug\Challenge.frmPrincipal.resources
+C:\Users\Gazabache\Desktop\Challenge\Challenge\obj\Debug\Challenge.Properties.Resources.resources
+C:\Users\Gazabache\Desktop\Challenge\Challenge\obj\Debug\ChallengeUI.csproj.GenerateResource.Cache
+C:\Users\Gazabache\Desktop\Challenge\Challenge\bin\Debug\Challenge.exe.config
+C:\Users\Gazabache\Desktop\Challenge\Challenge\bin\Debug\Challenge.exe
+C:\Users\Gazabache\Desktop\Challenge\Challenge\bin\Debug\Challenge.pdb
+C:\Users\Gazabache\Desktop\Challenge\Challenge\obj\Debug\Challenge.exe
+C:\Users\Gazabache\Desktop\Challenge\Challenge\obj\Debug\Challenge.pdb
+C:\Users\Gazabache\Desktop\Challenge\Challenge\bin\Debug\Business.dll
+C:\Users\Gazabache\Desktop\Challenge\Challenge\bin\Debug\Business.pdb
+C:\Users\Gazabache\Desktop\Challenge\Challenge\obj\Debug\ChallengeUI.csprojResolveAssemblyReference.cache
+C:\Users\Gazabache\Desktop\Challenge\Challenge\bin\Debug\Shared.dll
+C:\Users\Gazabache\Desktop\Challenge\Challenge\bin\Debug\Shared.pdb
