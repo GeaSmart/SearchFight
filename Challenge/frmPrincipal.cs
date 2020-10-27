@@ -22,14 +22,6 @@ namespace Challenge
         {
             this.wbrBrowser.Navigate(string.Format("https://www.google.com/search?q={0}", this.textBox1.Text));
             
-
-            //Script oScript = new Script();
-            
-
-            
-
-            //Script oScript = new Script();
-            //MessageBox.Show(oScript.CallServerSideCode().ToString());
         }
 
         private void wbrBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)

@@ -1,0 +1,6 @@
+C:\Users\Gazabache\Desktop\Challenge\ConsoleUI\bin\Debug\ConsoleUI.exe.config
+C:\Users\Gazabache\Desktop\Challenge\ConsoleUI\bin\Debug\ConsoleUI.exe
+C:\Users\Gazabache\Desktop\Challenge\ConsoleUI\bin\Debug\ConsoleUI.pdb
+C:\Users\Gazabache\Desktop\Challenge\ConsoleUI\obj\Debug\ConsoleUI.csprojResolveAssemblyReference.cache
+C:\Users\Gazabache\Desktop\Challenge\ConsoleUI\obj\Debug\ConsoleUI.exe
+C:\Users\Gazabache\Desktop\Challenge\ConsoleUI\obj\Debug\ConsoleUI.pdb
