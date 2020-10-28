@@ -16,7 +16,7 @@ namespace Business
 
             for (int i = 0; i < cadena.Length; i++)
             {
-                if (!Char.IsWhiteSpace(cadena[i]) && cadena[i] != '\'')
+                if (!Char.IsWhiteSpace(cadena[i]) && cadena[i] != '\"')
                 {
                     nuevaCadena.Append(cadena[i]);
                 }
@@ -31,7 +31,7 @@ namespace Business
                         nuevaCadena.Append(" ");
                     }
                 }
-                else if (cadena[i] == '\'')
+                else if (cadena[i] == '\"')
                 {
                     isNormal = !isNormal;
                 }

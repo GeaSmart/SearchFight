@@ -20,13 +20,12 @@ namespace Shared
         /* Resultados por motor de búsqueda */
         public static Int64 resultNumberGoogle;
         public static Int64 resultNumberBing;
-
-        //public static string resultHtml_2;
-        
+                
         /* Colores para la consola | Console colors */
         public const ConsoleColor HEADER_COLOR = ConsoleColor.Cyan;
         public const ConsoleColor RESULT_COLOR = ConsoleColor.Green;
         public const ConsoleColor QUESTION_COLOR = ConsoleColor.Gray;
+        public const ConsoleColor DANGER_COLOR = ConsoleColor.Red;
 
         /* Reglas Regex */
         public static string regexGoogle = @"(?<!\S)(\d*\.?\d+|\d{1,3}(,\d{3})*(\.\d+)?)(?!\S)";
