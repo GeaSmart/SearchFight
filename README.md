@@ -1,7 +1,7 @@
 SEARCHFIGHT - Code challenge Tranzact
 
 Welcome to this repo
-C# Console application, .NET, Linq, Multi Threads, Exception control,Multi-tier architecture
+C# Console application, .NET, Linq, Multi Threads, Exception control,Multi-tier architecture, regular expressions
 
 When a user enters a text string with words separated by white spaces or phrases grouped by double quotes [""] the application returns the number of results from google and bing and compares them.
 

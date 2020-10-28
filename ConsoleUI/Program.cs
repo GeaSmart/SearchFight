@@ -22,13 +22,14 @@ namespace ConsoleUI
 
         static void Main(string[] args)
         {
-            string AppName, author, version; //vamos a obtener estos valores del programa desde el App.config
+            //obtenemos valores del programa desde el App.config
             Utils.PrintToUser(string.Format("Welcome to {0} {1} starring Google vs Bing! [By {2}]",ConfigurationSettings.AppSettings["AppName"], ConfigurationSettings.AppSettings["version"], ConfigurationSettings.AppSettings["author"]), Variables.HEADER_COLOR);            
             Initialize();
         }
 
         private static void Initialize()
         {
+            listadoResultados.Clear();
             Utils.PrintToUser("====================================================================");
             Utils.PrintToUser("Ingrese las palabras a buscar:");
             string cadena = Console.ReadLine().Trim();  //Nos aseguramos que no hayan espacios en blanco al principio o final
