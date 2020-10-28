@@ -12,5 +12,8 @@ namespace Shared
         public static HtmlDocument doc;
         public static Int64 resultNumber;
 
+        public static string resultHtml;
+        public static string resultText;
+
     }
 }

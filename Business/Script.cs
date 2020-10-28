@@ -21,11 +21,13 @@ namespace Business
             //MessageBox.Show(doc.GetElementsByTagName("div")["result-stats"].OuterHtml);
 
             resultText = doc.GetElementsByTagName("div")["result-stats"].OuterHtml;
+            //resultText = doc.GetElementsByTagName("div")["b_tween"].OuterHtml;
             resultText = Regex.Match(resultText, @"(?<!\S)(\d*\.?\d+|\d{1,3}(,\d{3})*(\.\d+)?)(?!\S)").Value;
 
             Shared.Variables.resultNumber = Convert.ToInt64(resultText.Replace(",", ""));
-
-            
+            //Shared.Variables.resultHtml = resultText;    
         }
+
+
     }
 }
