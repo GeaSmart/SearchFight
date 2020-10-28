@@ -2,4 +2,3 @@ C:\Users\Gazabache\Desktop\Challenge\Shared\bin\Debug\Shared.dll
 C:\Users\Gazabache\Desktop\Challenge\Shared\bin\Debug\Shared.pdb
 C:\Users\Gazabache\Desktop\Challenge\Shared\obj\Debug\Shared.dll
 C:\Users\Gazabache\Desktop\Challenge\Shared\obj\Debug\Shared.pdb
-C:\Users\Gazabache\Desktop\Challenge\Shared\obj\Debug\Shared.csprojResolveAssemblyReference.cache

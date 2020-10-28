@@ -9,6 +9,9 @@ namespace Shared
 {
     public static class Variables
     {
+        public static string googleQueryUrl = @"https://www.google.com/search?q=";
+        public static string BingQueryUrl = @"https://www.bing.com/search?q=";
+
         public static HtmlDocument doc;
         public static Int64 resultNumber;
 

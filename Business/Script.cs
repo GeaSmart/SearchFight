@@ -17,17 +17,19 @@ namespace Business
 
         public void CallServerSideCode()
         {
-            var doc = Shared.Variables.doc;
-            //MessageBox.Show(doc.GetElementsByTagName("div")["result-stats"].OuterHtml);
-
-            resultText = doc.GetElementsByTagName("div")["result-stats"].OuterHtml;
-            //resultText = doc.GetElementsByTagName("div")["b_tween"].OuterHtml;
+            var doc = Shared.Variables.doc;            
+            resultText = doc.GetElementsByTagName("div")["result-stats"].OuterHtml;            
             resultText = Regex.Match(resultText, @"(?<!\S)(\d*\.?\d+|\d{1,3}(,\d{3})*(\.\d+)?)(?!\S)").Value;
-
-            Shared.Variables.resultNumber = Convert.ToInt64(resultText.Replace(",", ""));
-            //Shared.Variables.resultHtml = resultText;    
+            Shared.Variables.resultNumber = Convert.ToInt64(resultText.Replace(",", ""));            
         }
 
-
+        public void CallHtmlCode()
+        {
+            var doc = Shared.Variables.doc;                        
+            resultText = doc.GetElementsByTagName("div")["b_tween"].OuterHtml;
+            resultText = resultText.Replace(".", "");
+            resultText = Regex.Match(resultText, @"\d+").Value;
+            Shared.Variables.resultNumber = Convert.ToInt64(resultText);            
+        }
     }
 }

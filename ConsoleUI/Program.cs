@@ -25,15 +25,17 @@ namespace ConsoleUI
 
             foreach(var palabra in cadena.Split(' '))
             {
-                url = string.Format("https://www.google.com/search?q={0}", palabra);
-                //url = string.Format("https://www.bing.com/search?q={0}", palabra);
-
+                url = string.Format("{0}{1}", Shared.Variables.BingQueryUrl, palabra);
+                
                 Program obj = new Program();
-                Thread thr1 = new Thread(new ThreadStart(obj.runGoogleThread));
+                Thread thr1 = new Thread(new ThreadStart(obj.runBingThread)); //select google or bing thread
                 thr1.SetApartmentState(ApartmentState.STA);
                 thr1.Start();
+
+                thr1.Join(); //added
+
                 Thread.Sleep(3000);
-                Console.WriteLine(palabra + " -> " + Shared.Variables.resultNumber.ToString());
+                Console.WriteLine(palabra + " -> " + Shared.Variables.resultNumber.ToString()); //select number o text as result
 
                 //Thread thr1 = new Thread(new ThreadStart(obj.runBrowserThreadBing));
 
@@ -59,22 +61,30 @@ namespace ConsoleUI
             th.Start();                       
         }
 
-        //private void runBingThread()
-        //{
-        //    var th = new Thread(() =>
-        //    {
-        //        WebBrowser browser = new WebBrowser();
-        //        browser.ScriptErrorsSuppressed = true;
-        //        browser.DocumentText = html;
-        //        browser.Document.OpenNew(true);
-        //        browser.Document.Write(html);
-        //        browser.Refresh();
-        //        Shared.Variables.doc = browser.Document; ;
-        //    });
+        private void runBingThread()
+        {
+            //var th = new Thread(() =>
+            //{
+                using (WebClient client = new WebClient())
+                {
+                    Shared.Variables.resultHtml = client.DownloadString(url);
+                }
 
-        //    th.SetApartmentState(ApartmentState.STA);
-        //    th.Start();
-        //}
+                WebBrowser browser = new WebBrowser();
+                browser.ScriptErrorsSuppressed = true;
+                browser.DocumentText = Shared.Variables.resultHtml;
+                browser.Document.OpenNew(true);
+                browser.Document.Write(Shared.Variables.resultHtml);
+                browser.Refresh();
+                Shared.Variables.doc = browser.Document;
+            //});
+
+            Script oScript = new Script();
+            oScript.CallHtmlCode();
+
+            //th.SetApartmentState(ApartmentState.STA);
+            //th.Start();
+        }
 
         private static void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
