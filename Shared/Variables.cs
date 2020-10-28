@@ -15,8 +15,11 @@ namespace Shared
         public static HtmlDocument doc;
         public static Int64 resultNumber;
 
-        public static string resultHtml;
-        public static string resultText;
+        public static HtmlDocument doc_2;
+        public static Int64 resultNumber_2;
+
+        public static string resultHtml_2;
+        public static string resultText_2;
 
     }
 }
