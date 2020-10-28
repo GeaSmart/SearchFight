@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Shared;
 using Business;
+using Entity;
 using System.Net;
 using System.Text.RegularExpressions;
 
@@ -16,6 +17,7 @@ namespace ConsoleUI
     {
         static string urlGoogle = "";
         static string urlBing = "";
+        static List<eResults> listado = new List<eResults>();
 
         static void Main(string[] args)
         {            
@@ -24,23 +26,16 @@ namespace ConsoleUI
 
             Console.WriteLine("Ingrese las palabras a buscar:");
             string cadena = Console.ReadLine();
+
+            
             
             foreach (string palabra in Utils.getSplittedStrings(cadena))
             {
-                //url = string.Format("{0}{1}", Shared.Variables.BingQueryUrl, palabra);
-
-                //Program obj = new Program();
-                //Thread thr1 = new Thread(new ThreadStart(obj.runBingThread)); //select google or bing thread
-                //thr1.SetApartmentState(ApartmentState.STA);
-                //thr1.Start();
-
-                //thr1.Join(); //added
-
-                ////Thread.Sleep(3000);
-                //Console.WriteLine(palabra + " -> " + Shared.Variables.resultNumber.ToString()); //select number o text as result                
-
                 executeSearchEngine(palabra);
             }
+
+
+            showResults();
 
             //waiting for read all
             Console.WriteLine("\r\nPulse una tecla para salir");
@@ -54,15 +49,6 @@ namespace ConsoleUI
             urlBing = string.Format("{0}{1}", Shared.Variables.BingQueryUrl, searchPhrase);
 
             Program obj = new Program();
-            //Thread thr1;
-            //if (searchProvider.Equals("Google"))
-            //{
-            //    thr1 = new Thread(new ThreadStart(obj.runGoogleThread)); //select google or bing thread
-            //}
-            //else
-            //{
-            //    thr1 = new Thread(new ThreadStart(obj.runBingThread)); //select google or bing thread
-            //}
 
             Thread thr1 = new Thread(new ThreadStart(obj.runGoogleThread));
             Thread thr2 = new Thread(new ThreadStart(obj.runBingThread));
@@ -75,14 +61,20 @@ namespace ConsoleUI
 
             thr2.Join();
 
-            //if (searchProvider.Equals("Bing"))
-            //    thr1.Join(); //added
-
-            //if (searchProvider.Equals("Google"))
             Thread.Sleep(3000);
 
-            Console.WriteLine(searchPhrase + " GOOGLE-> " +  Shared.Variables.resultNumber.ToString()); //select number o text as result    
-            Console.WriteLine(searchPhrase + " BING-> " + Shared.Variables.resultNumber_2.ToString()); //select number o text as result    
+            Console.WriteLine(string.Format("{0}\t\t Google:{1}\tBing:{2}",searchPhrase, Shared.Variables.resultNumber.ToString(), Shared.Variables.resultNumber_2.ToString()));
+            eResults res = new eResults();
+            res.searchProvider = "Google";
+            res.wordSearched = searchPhrase;
+            res.numberResults = Shared.Variables.resultNumber;
+            listado.Add(res);
+
+            eResults res2 = new eResults();
+            res2.searchProvider = "Bing";
+            res2.wordSearched = searchPhrase;
+            res2.numberResults = Shared.Variables.resultNumber_2;
+            listado.Add(res2);
         }
 
         private void runGoogleThread()
@@ -133,6 +125,22 @@ namespace ConsoleUI
             {
 
             }
+        }
+
+        private static void showResults()
+        {
+            Console.WriteLine("\r\n");
+            Console.WriteLine("***RESULTS***");
+            Console.WriteLine("=============");
+
+            string googleWinner = (from l in listado where l.searchProvider.Equals("Google") orderby l.numberResults descending select l.wordSearched).FirstOrDefault().ToString();
+            string bingWinner = (from l in listado where l.searchProvider.Equals("Bing") orderby l.numberResults descending select l.wordSearched).FirstOrDefault().ToString();
+
+            string totalWinner = (from l in listado orderby l.numberResults descending select l.wordSearched).FirstOrDefault().ToString();
+
+            Console.WriteLine("Google winner:\t" + googleWinner);
+            Console.WriteLine("Bing winner:\t"  + bingWinner);
+            Console.WriteLine("Total winner:\t" + totalWinner);
         }
     }
 }

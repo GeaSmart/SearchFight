@@ -1,0 +1,5 @@
+C:\Users\Gazabache\Desktop\Challenge\Entity\bin\Debug\Entity.dll
+C:\Users\Gazabache\Desktop\Challenge\Entity\bin\Debug\Entity.pdb
+C:\Users\Gazabache\Desktop\Challenge\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\Gazabache\Desktop\Challenge\Entity\obj\Debug\Entity.dll
+C:\Users\Gazabache\Desktop\Challenge\Entity\obj\Debug\Entity.pdb
