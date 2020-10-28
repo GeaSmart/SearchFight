@@ -41,7 +41,15 @@ namespace Business
             {
                 lista.Add(token.Replace("\r",""));
             }
-            return lista;
+                        
+            return (from l in lista where l.Length > 0 select l).ToList(); //prevenimos excepciones por items blank
+        }
+
+        public static void PrintToUser(string message, ConsoleColor color = ConsoleColor.White)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }

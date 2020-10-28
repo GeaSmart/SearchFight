@@ -21,26 +21,21 @@ namespace ConsoleUI
 
         static void Main(string[] args)
         {            
-            Console.WriteLine("SEARCH FIGHT");
-            Console.WriteLine("============");
+            Utils.PrintToUser("SEARCH FIGHT STARRING GOOGLE vs BING! [By Gazabache]", Variables.HEADER_COLOR);            
+            Initialize();
+        }
 
-            Console.WriteLine("Ingrese las palabras a buscar:");
-            string cadena = Console.ReadLine();
+        private static void Initialize()
+        {
+            Utils.PrintToUser("=====================================================");
+            Utils.PrintToUser("Ingrese las palabras a buscar:");
+            string cadena = Console.ReadLine().Trim();  //Nos aseguramos que no hayan espacios en blanco al principio o final
 
-            
-            
             foreach (string palabra in Utils.getSplittedStrings(cadena))
             {
                 executeSearchEngine(palabra);
             }
-
-
             showResults();
-
-            //waiting for read all
-            Console.WriteLine("\r\nPulse una tecla para salir");
-            if (Console.ReadLine() == "x")
-                Application.Exit();
         }
 
         private static void executeSearchEngine(string searchPhrase)
@@ -63,7 +58,7 @@ namespace ConsoleUI
 
             Thread.Sleep(3000);
 
-            Console.WriteLine(string.Format("{0}\t\t Google:{1}\tBing:{2}",searchPhrase, Shared.Variables.resultNumber.ToString(), Shared.Variables.resultNumber_2.ToString()));
+            Utils.PrintToUser(string.Format("{0}\t\t Google:{1}\tBing:{2}",searchPhrase, Shared.Variables.resultNumber.ToString(), Shared.Variables.resultNumber_2.ToString()));
             eResults res = new eResults();
             res.searchProvider = "Google";
             res.wordSearched = searchPhrase;
@@ -129,18 +124,28 @@ namespace ConsoleUI
 
         private static void showResults()
         {
-            Console.WriteLine("\r\n");
-            Console.WriteLine("***RESULTS***");
-            Console.WriteLine("=============");
+            Utils.PrintToUser("\r\n");
+            Utils.PrintToUser("***RESULTS***", Variables.HEADER_COLOR);
+            //Utils.PrintToUser("=============");
 
             string googleWinner = (from l in listado where l.searchProvider.Equals("Google") orderby l.numberResults descending select l.wordSearched).FirstOrDefault().ToString();
             string bingWinner = (from l in listado where l.searchProvider.Equals("Bing") orderby l.numberResults descending select l.wordSearched).FirstOrDefault().ToString();
 
             string totalWinner = (from l in listado orderby l.numberResults descending select l.wordSearched).FirstOrDefault().ToString();
 
-            Console.WriteLine("Google winner:\t" + googleWinner);
-            Console.WriteLine("Bing winner:\t"  + bingWinner);
-            Console.WriteLine("Total winner:\t" + totalWinner);
+            Utils.PrintToUser("Google winner:\t" + googleWinner);
+            Utils.PrintToUser("Bing winner:\t"  + bingWinner);
+            Utils.PrintToUser("Total winner:\t" + totalWinner,Variables.RESULT_COLOR);
+                     
+            Utils.PrintToUser("\r\n¿Desea realizar otra búsqueda?(S/N)",Variables.QUESTION_COLOR);
+            if (Console.ReadLine().ToUpper() == "S")
+            {
+                Initialize();
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }

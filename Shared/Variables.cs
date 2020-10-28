@@ -21,5 +21,9 @@ namespace Shared
         public static string resultHtml_2;
         public static string resultText_2;
 
+        public const ConsoleColor HEADER_COLOR = ConsoleColor.Cyan;
+        public const ConsoleColor RESULT_COLOR = ConsoleColor.Green;
+        public const ConsoleColor QUESTION_COLOR = ConsoleColor.Gray;
+        
     }
 }

@@ -1,7 +1,7 @@
 C:\Users\Gazabache\Desktop\Challenge\Business\bin\Debug\Business.dll
 C:\Users\Gazabache\Desktop\Challenge\Business\bin\Debug\Business.pdb
-C:\Users\Gazabache\Desktop\Challenge\Business\obj\Debug\Business.dll
-C:\Users\Gazabache\Desktop\Challenge\Business\obj\Debug\Business.pdb
 C:\Users\Gazabache\Desktop\Challenge\Business\bin\Debug\Shared.dll
 C:\Users\Gazabache\Desktop\Challenge\Business\bin\Debug\Shared.pdb
 C:\Users\Gazabache\Desktop\Challenge\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
+C:\Users\Gazabache\Desktop\Challenge\Business\obj\Debug\Business.dll
+C:\Users\Gazabache\Desktop\Challenge\Business\obj\Debug\Business.pdb
