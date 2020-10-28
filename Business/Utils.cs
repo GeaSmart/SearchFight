@@ -8,7 +8,7 @@ namespace Business
 {
     public class Utils
     {
-        public static List<string> getSplittedStrings(string cadena)
+        public static List<string> getSplittedStrings(string cadena) //a partir de una cadena, nos devuelve en una lista las palabras o frases según las reglas del negocio del challenge
         {
             List<string> lista = new List<string>();
             StringBuilder nuevaCadena = new StringBuilder();

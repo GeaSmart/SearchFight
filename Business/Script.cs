@@ -12,25 +12,16 @@ namespace Business
     [ComVisible(true)]
     public class Script
     {
-        string resultText = "";
-        string resultText_2 = "";
-
-
-        public void CallServerSideCode()
+        public void CallServerSideCode() //Utilizado por el motor de búsquedas Google debido a que no se puede obtener el número de resultados desde el html inicial directamente obtenido sino del html post-ejcucion de codigo JS.
         {
-            var doc = Shared.Variables.doc;            
-            resultText = doc.GetElementsByTagName("div")["result-stats"].OuterHtml;            
-            resultText = Regex.Match(resultText, @"(?<!\S)(\d*\.?\d+|\d{1,3}(,\d{3})*(\.\d+)?)(?!\S)").Value;
-            Shared.Variables.resultNumber = Convert.ToInt64(resultText.Replace(",", ""));            
+            var doc = Shared.Variables.htmlGoogle;            
+            Shared.Variables.resultNumberGoogle = Convert.ToInt64(Regex.Match(doc.GetElementsByTagName("div")["result-stats"].OuterHtml, Shared.Variables.regexGoogle).Value.Replace(",", ""));            
         }
 
-        public void CallHtmlCode()
+        public void CallHtmlCode() //Utilizado por Bing, quien desde el primer html obtenido ya nos da la información que necsitamos
         {
-            var doc = Shared.Variables.doc_2;                        
-            resultText_2 = doc.GetElementsByTagName("div")["b_tween"].OuterHtml;
-            resultText_2 = resultText_2.Replace(".", "");
-            resultText_2 = Regex.Match(resultText_2, @"\d+").Value;
-            Shared.Variables.resultNumber_2 = Convert.ToInt64(resultText_2);            
+            var doc = Shared.Variables.htmlBing;            
+            Shared.Variables.resultNumberBing = Convert.ToInt64(Regex.Match(doc.GetElementsByTagName("div")["b_tween"].OuterHtml.Replace(".", ""), Shared.Variables.regexBing).Value);            
         }
     }
 }

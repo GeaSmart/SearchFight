@@ -9,21 +9,28 @@ namespace Shared
 {
     public static class Variables
     {
+        /* Armado de URLs */
         public static string googleQueryUrl = @"https://www.google.com/search?q=";
         public static string BingQueryUrl = @"https://www.bing.com/search?q=";
 
-        public static HtmlDocument doc;
-        public static Int64 resultNumber;
+        /* Manejo de estructuras HTML */
+        public static HtmlDocument htmlGoogle;        
+        public static HtmlDocument htmlBing;
 
-        public static HtmlDocument doc_2;
-        public static Int64 resultNumber_2;
+        /* Resultados por motor de búsqueda */
+        public static Int64 resultNumberGoogle;
+        public static Int64 resultNumberBing;
 
-        public static string resultHtml_2;
-        public static string resultText_2;
-
+        //public static string resultHtml_2;
+        
+        /* Colores para la consola | Console colors */
         public const ConsoleColor HEADER_COLOR = ConsoleColor.Cyan;
         public const ConsoleColor RESULT_COLOR = ConsoleColor.Green;
         public const ConsoleColor QUESTION_COLOR = ConsoleColor.Gray;
+
+        /* Reglas Regex */
+        public static string regexGoogle = @"(?<!\S)(\d*\.?\d+|\d{1,3}(,\d{3})*(\.\d+)?)(?!\S)";
+        public static string regexBing = @"\d+";
         
     }
 }

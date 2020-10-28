@@ -21,7 +21,7 @@ namespace ConsoleUI
 
         static void Main(string[] args)
         {            
-            Utils.PrintToUser("SEARCH FIGHT STARRING GOOGLE vs BING! [By Gazabache]", Variables.HEADER_COLOR);            
+            Utils.PrintToUser("SEARCH FIGHT STARRING GOOGLE vs BING! [Por Gazabache]", Variables.HEADER_COLOR);            
             Initialize();
         }
 
@@ -40,6 +40,7 @@ namespace ConsoleUI
 
         private static void executeSearchEngine(string searchPhrase)
         {
+            //Utlizamos dos variables, debido a que la ejecucion del algoritmo emplea dos hilos distintos y queremos evitar conflictos de asignacion de variables por cocurrencia
             urlGoogle = string.Format("{0}{1}", Shared.Variables.googleQueryUrl, searchPhrase);
             urlBing = string.Format("{0}{1}", Shared.Variables.BingQueryUrl, searchPhrase);
 
@@ -58,17 +59,17 @@ namespace ConsoleUI
 
             Thread.Sleep(3000);
 
-            Utils.PrintToUser(string.Format("{0}\t\t Google:{1}\tBing:{2}",searchPhrase, Shared.Variables.resultNumber.ToString(), Shared.Variables.resultNumber_2.ToString()));
+            Utils.PrintToUser(string.Format("{0}\t\t Google:{1}\tBing:{2}",searchPhrase, Shared.Variables.resultNumberGoogle.ToString(), Shared.Variables.resultNumberBing.ToString()));
             eResults res = new eResults();
             res.searchProvider = "Google";
             res.wordSearched = searchPhrase;
-            res.numberResults = Shared.Variables.resultNumber;
+            res.numberResults = Shared.Variables.resultNumberGoogle;
             listado.Add(res);
 
             eResults res2 = new eResults();
             res2.searchProvider = "Bing";
             res2.wordSearched = searchPhrase;
-            res2.numberResults = Shared.Variables.resultNumber_2;
+            res2.numberResults = Shared.Variables.resultNumberBing;
             listado.Add(res2);
         }
 
@@ -88,18 +89,19 @@ namespace ConsoleUI
 
         private void runBingThread()
         {
+            string document;
             using (WebClient client = new WebClient())
             {
-                Shared.Variables.resultHtml_2 = client.DownloadString(urlBing);
+                document = client.DownloadString(urlBing);
             }
 
             WebBrowser browser = new WebBrowser();
             browser.ScriptErrorsSuppressed = true;
-            browser.DocumentText = Shared.Variables.resultHtml_2;
+            browser.DocumentText = document;
             browser.Document.OpenNew(true);
-            browser.Document.Write(Shared.Variables.resultHtml_2);
+            browser.Document.Write(document);
             browser.Refresh();
-            Shared.Variables.doc_2 = browser.Document;
+            Shared.Variables.htmlBing = browser.Document;
 
             Script oScript = new Script();
             oScript.CallHtmlCode();
@@ -111,7 +113,7 @@ namespace ConsoleUI
             {
                 var br = sender as WebBrowser;                
                 br.Navigate("javascript: window.external.CallServerSideCode();");
-                Shared.Variables.doc = br.Document;
+                Shared.Variables.htmlGoogle = br.Document;
 
                 Script oScript = new Script();
                 br.ObjectForScripting = oScript;       
