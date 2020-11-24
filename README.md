@@ -1,4 +1,4 @@
-SEARCHFIGHT - Code challenge Tranzact
+SEARCHFIGHT - Code challenge
 
 Welcome to this repo
 C# Console application, .NET, Linq, Multi Threads, Exception control,Multi-tier architecture, regular expressions
