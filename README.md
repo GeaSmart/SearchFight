@@ -8,7 +8,4 @@ When a user enters a text string with words separated by white spaces or phrases
 Cuando un usuario ingresa una cadena de texto con palabras separadas por espacio en blanco, o frases agrupadas con comillas dobles [""] la app nos devuelve el numero de resultados en google y 
 bing y los compara.
 
-Regards,
-
 Gerson Azabache
-gerson@gazabache.com
